@@ -24,10 +24,6 @@
           >
             <v-card-title class="d-flex justify-space-between">
               <v-icon>mdi-wave</v-icon>
-              <v-icon
-                :class="playing == mostPopular.title ? 'd-block' : 'd-hidden'"
-                >mdi-volume-high</v-icon
-              >
             </v-card-title>
             <v-card-text class="font-bold-medium">{{
               mostPopular.title
@@ -36,7 +32,8 @@
               class="mx-auto card-image"
               :class="hover ? 'scale-image' : ''"
               :src="mostPopular.image"
-              max-width="190"
+              max-width="200"
+              min-height="200"
               max-height="100%"
             ></v-img>
           </v-card>
@@ -66,10 +63,6 @@
           >
             <v-card-title class="d-flex justify-space-between">
               <v-icon>mdi-wave</v-icon>
-              <v-icon
-                :class="playing == mightLike.title ? 'd-block' : 'd-hidden'"
-                >mdi-volume-high</v-icon
-              >
             </v-card-title>
             <v-card-text class="font-bold-medium">{{
               mightLike.title
@@ -78,7 +71,8 @@
               class="mx-auto card-image"
               :class="hover ? 'scale-image' : ''"
               :src="mightLike.image"
-              max-width="190"
+              max-width="200"
+              min-height="200"
               max-height="100%"
             ></v-img>
           </v-card>
@@ -88,7 +82,7 @@
     <div
       class="play-bar-box d-flex flex-column flex-md-row align-center justify-space-around"
     >
-      <div @click="test(musicTime)" class="play-disk"></div>
+      <div class="play-disk"></div>
       <div class="music-title-box">
         <span class="music-title">{{ playing.title }}</span>
         <span class="music-artist">{{ playing.artist }}</span>
@@ -114,52 +108,32 @@
 <script>
 export default {
   name: "Home",
-  computed: {
-    musicTime: function() {
-      if (!this.isMounted) return 10;
-      const currentTime = this.$refs.music.currentTime;
-      const duration = this.$refs.music.duration;
-      const timePercent = Number((currentTime / duration) * 100);
-      return timePercent;
-    },
-    isPlaying: function() {
-      if (!this.isMounted) return false;
-      return !this.$refs.music.paused;
-    },
-  },
-  mounted() {
-    this.isMounted = true;
-  },
   data: () => ({
-    isMounted: false,
+    songNumber: 0,
     playing: {},
     mightLikes: [
       {
         value: "danceSongs",
         title: "Lana del rey",
-        image:
-          "https://lh3.googleusercontent.com/proxy/seEpca2K8hh7QYBUf-ZkO_QPbvOwglXvN4G2ZH-piumzPqgWbSq8Jb8GBlhrTT7Uyr8Kbn5ZDXOVeFUeKrbBm6iKDwMAK2NI63nhnCwWG7J_QL9CgdML",
+        image: require("../assets/lana-del-rey.webp"),
         color: "#741c3b",
       },
       {
         value: "danceSongs",
         title: "Eminem",
-        image:
-          "https://i.pinimg.com/originals/41/ec/9b/41ec9bc1aa2956d248874d5b070fbc1d.png",
+        image: require("../assets/eminem.webp"),
         color: "#ffa133",
       },
       {
         value: "danceSongs",
-        title: "The weekend",
-        image:
-          "https://lh3.googleusercontent.com/proxy/Y5RPt_Z5u_CYhFv1_CDGZJNR1oC0HjLdMcsL-Ljmf2n3_Y0Y1ZcfJJzCV1WtXk9yVCuzBqHtbVPofOB7oeUwOVVXDeZT4sCBvzFLO05qBTb-hXhQrfuKoB2hNZXg7Lvi9b2QEFSN",
+        title: "The weeknd",
+        image: require("../assets/weeknd.webp"),
         color: "#2ae59d",
       },
       {
         value: "danceSongs",
-        title: "Billie Eilish",
-        image:
-          "https://lh3.googleusercontent.com/proxy/GHbxaHbsXyJVOPSbocYoPjrD6BBOTiit1FVsPThmSdiksPFzM_6z0dchB11syvBCJO5EEl-1gKQIVnqU8qXdgpwH1N8xtsz-44Z0ZqYZuT5dL6kLqYx_bBDRfgBKyVP1",
+        title: "Billie Eilish ",
+        image: require("../assets/billie.webp"),
         color: "#67a4ff",
       },
     ],
@@ -167,25 +141,25 @@ export default {
       {
         value: "chillSongs",
         title: "Chill Hits",
-        image: require("../assets/katy-parry.png"),
+        image: require("../assets/katy-parry.webp"),
         color: "#4edf92",
       },
       {
         value: "topSongs",
         title: "Top Hits",
-        image: require("../assets/taylor-swift.png"),
+        image: require("../assets/taylor-swift.webp"),
         color: "#ff5474",
       },
       {
         value: "acousticSongs",
         title: "Acoustic",
-        image: require("../assets/chris-martin.png"),
+        image: require("../assets/chris-martin.webp"),
         color: "#7673fe",
       },
       {
         value: "danceSongs",
         title: "Dance",
-        image: require("../assets/Lady-Gaga.png"),
+        image: require("../assets/Lady-Gaga.webp"),
         color: "#ffa133",
       },
     ],
@@ -195,7 +169,7 @@ export default {
       this.$refs.music.pause();
     },
     play(value) {
-      this.playing = this.$store.state[value][0];
+      this.playing = this.$store.state[value][this.songNumber];
       setTimeout(() => {
         this.$refs.music.play();
       }, 500);
@@ -205,7 +179,6 @@ export default {
               box-shadow: 0px 0px 35px -18px ${color};`;
     },
     test(attrs) {
-      console.log(!this.$refs.music.paused);
       console.log(attrs);
     },
   },
