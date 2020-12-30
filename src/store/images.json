@@ -1,0 +1,11 @@
+{
+  "Eminem": { "src": "assets/eminem.webp", "color": "#741c3b" },
+  "Billie Eilish": { "src": "assets/billie.webp", "color": "#ffa133" },
+  "The Weeknd": { "src": "assets/weeknd.webp", "color": "#2ae59d" },
+  "Katy Perry": { "src": "assets/katy-parry.webp", "color": "#67a4ff" },
+  "Lana Del Rey": { "src": "assets/lana-del-rey.webp", "color": "#4edf92" },
+  "Lady Gaga": { "src": "assets/Lady-Gaga.webp", "color": "#ff5474" },
+  "Coldplay": { "src": "assets/chris-martin.webp", "color": "#977EF2" },
+  "Taylor Swift": { "src": "assets/taylor-swift.webp", "color": "#2955D9" },
+  "Sam Smith": { "src": "assets/sam-smith.webp", "color": "#7673fe" }
+}

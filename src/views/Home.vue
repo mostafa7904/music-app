@@ -1,6 +1,18 @@
 <template>
   <div class="home">
-    <audio :src="playing.src" hidden ref="music"></audio>
+    <audio
+      @loadeddata="onLoadedSong"
+      @loadstart="loadStart"
+      @playing="updateStatus"
+      @pause="updateStatus"
+      @canplay="updateStatus"
+      @ended="nextSong"
+      :src="playing.src"
+      aria-hidden="true"
+      hidden
+      id="music"
+      ref="music"
+    ></audio>
     <div class="white--text font-weight-bold text-h5 d-flex justify-start my-6">
       Most popular
     </div>
@@ -12,32 +24,31 @@
         v-for="(mostPopular, index) in mostPopulars"
         :key="index"
       >
-        <v-hover v-slot="{ hover }">
-          <v-card
-            @click.stop="play(mostPopular.value)"
-            hover
-            :style="genShadow(mostPopular.color)"
-            :color="mostPopular.color"
-            class="rounded-large"
-            min-height="310"
-            max-height="350"
-          >
-            <v-card-title class="d-flex justify-space-between">
-              <v-icon>mdi-wave</v-icon>
-            </v-card-title>
-            <v-card-text class="font-bold-medium">{{
-              mostPopular.title
-            }}</v-card-text>
-            <v-img
-              class="mx-auto card-image"
-              :class="hover ? 'scale-image' : ''"
-              :src="mostPopular.image"
-              max-width="200"
-              min-height="200"
-              max-height="100%"
-            ></v-img>
-          </v-card>
-        </v-hover>
+        <v-card
+          class="music-card"
+          rounded="xl"
+          :ripple="false"
+          @click.stop="play(mostPopular)"
+          :style="genShadow(mostPopular.color)"
+          :color="mostPopular.color"
+          min-height="310"
+          max-height="350"
+        >
+          <v-card-title class="d-flex justify-space-between">
+            <v-icon>mdi-wave</v-icon>
+            <v-icon v-if="isSongPlaying(mostPopular)">mdi-speaker</v-icon>
+          </v-card-title>
+          <v-card-text class="font-bold-medium">{{
+            mostPopular.tag
+          }}</v-card-text>
+          <v-img
+            class="mx-auto card-image"
+            :src="mostPopular.image"
+            max-width="200"
+            min-height="200"
+            max-height="100%"
+          ></v-img>
+        </v-card>
       </v-col>
     </v-row>
     <div class="white--text font-weight-bold text-h5 d-flex justify-start my-6">
@@ -51,49 +62,60 @@
         v-for="(mightLike, index) in mightLikes"
         :key="index"
       >
-        <v-hover v-slot="{ hover }">
-          <v-card
-            @click.stop="play(mightLike.value)"
-            hover
-            :style="genShadow(mightLike.color)"
-            :color="mightLike.color"
-            class="rounded-large"
-            min-height="310"
-            max-height="350"
-          >
-            <v-card-title class="d-flex justify-space-between">
-              <v-icon>mdi-wave</v-icon>
-            </v-card-title>
-            <v-card-text class="font-bold-medium">{{
-              mightLike.title
-            }}</v-card-text>
-            <v-img
-              class="mx-auto card-image"
-              :class="hover ? 'scale-image' : ''"
-              :src="mightLike.image"
-              max-width="200"
-              min-height="200"
-              max-height="100%"
-            ></v-img>
-          </v-card>
-        </v-hover>
+        <v-card
+          :ripple="false"
+          @click.stop="play(mightLike)"
+          :style="genShadow(mightLike.color)"
+          :color="mightLike.color"
+          rounded="xl"
+          min-height="310"
+          max-height="350"
+        >
+          <v-card-title class="d-flex justify-space-between">
+            <v-icon>mdi-wave</v-icon>
+            <v-icon v-if="isSongPlaying(mightLike)">mdi-speaker</v-icon>
+          </v-card-title>
+          <v-card-text class="font-bold-medium">{{
+            mightLike.artist
+          }}</v-card-text>
+          <v-img
+            class="mx-auto card-image"
+            :src="mightLike.image"
+            max-width="200"
+            min-height="200"
+            max-height="100%"
+          ></v-img>
+        </v-card>
       </v-col>
     </v-row>
     <div
       class="play-bar-box d-flex flex-column flex-md-row align-center justify-space-around"
     >
-      <div class="play-disk"></div>
+      <v-avatar class="play-disk" size="100" rounded="circle">
+        <v-img
+          :src="
+            playing.cover
+              ? getCover(playing)
+              : require('../assets/covers/music-disk.png')
+          "
+        >
+        </v-img>
+      </v-avatar>
       <div class="music-title-box">
         <span class="music-title">{{ playing.title }}</span>
         <span class="music-artist">{{ playing.artist }}</span>
       </div>
       <div class="music-controls d-flex align-center">
         <div class="music-controls-buttons">
-          <v-icon>mdi-skip-backward</v-icon>
-          <v-icon class="mx-3">mdi-{{ isPlaying ? "pause" : "play" }}</v-icon>
-          <v-icon>mdi-skip-forward</v-icon>
+          <v-icon @click="previousSong">mdi-skip-backward</v-icon>
+          <v-icon class="mx-3" @click="play()"
+            >mdi-{{ isPlaying ? "pause" : "play" }}</v-icon
+          >
+          <v-icon @click="nextSong">mdi-skip-forward</v-icon>
         </div>
         <v-progress-linear
+          :indeterminate="loadingSong"
+          @click="getTime"
           height="2"
           background-color="grey"
           color="white"
@@ -106,73 +128,129 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "Home",
+  computed: {
+    ...mapState({
+      songs: (state) => state.songs,
+      images: (state) => state.images,
+      artists: (state) => state.artists,
+    }),
+  },
   data: () => ({
-    songNumber: 0,
+    loadingSong: false,
+    isPlaying: false,
+    audio: null,
+    musicTime: 0,
+    buffered: 0,
+    loadingApp: true,
     playing: {},
-    mightLikes: [
-      {
-        value: "danceSongs",
-        title: "Lana del rey",
-        image: require("../assets/lana-del-rey.webp"),
-        color: "#741c3b",
-      },
-      {
-        value: "danceSongs",
-        title: "Eminem",
-        image: require("../assets/eminem.webp"),
-        color: "#ffa133",
-      },
-      {
-        value: "danceSongs",
-        title: "The weeknd",
-        image: require("../assets/weeknd.webp"),
-        color: "#2ae59d",
-      },
-      {
-        value: "danceSongs",
-        title: "Billie Eilish ",
-        image: require("../assets/billie.webp"),
-        color: "#67a4ff",
-      },
-    ],
-    mostPopulars: [
-      {
-        value: "chillSongs",
-        title: "Chill Hits",
-        image: require("../assets/katy-parry.webp"),
-        color: "#4edf92",
-      },
-      {
-        value: "topSongs",
-        title: "Top Hits",
-        image: require("../assets/taylor-swift.webp"),
-        color: "#ff5474",
-      },
-      {
-        value: "acousticSongs",
-        title: "Acoustic",
-        image: require("../assets/chris-martin.webp"),
-        color: "#7673fe",
-      },
-      {
-        value: "danceSongs",
-        title: "Dance",
-        image: require("../assets/Lady-Gaga.webp"),
-        color: "#ffa133",
-      },
-    ],
+    mightLikes: [],
+    mostPopulars: [],
+    previousSongId: 0,
   }),
+  async mounted() {
+    await this.init();
+    const audio = document.querySelector("#music");
+    this.audio = audio;
+    audio.addEventListener("timeupdate", this.updateStatus);
+    this.loadingApp = false;
+  },
   methods: {
-    pause() {
-      this.$refs.music.pause();
+    onLoadedSong() {
+      this.loadingSong = false;
     },
-    play(value) {
-      this.playing = this.$store.state[value][this.songNumber];
-      setTimeout(() => {
-        this.$refs.music.play();
-      }, 500);
+    loadStart() {
+      this.loadingSong = true;
+    },
+    isSongPlaying(song) {
+      return this.playing == song;
+    },
+    getTime() {
+      const current = this.audio.currentTime;
+      const duration = this.audio.duration;
+      this.musicTime = (current / duration) * 100;
+    },
+    async init() {
+      const mightLikes = this.getRandom(this.songs, 4);
+      const mostPopular = this.getRandom(this.songs, 4);
+      this.mightLikes = this.genSongsArray(mightLikes);
+      this.mostPopulars = this.genSongsArray(mostPopular);
+    },
+    getImage(artist) {
+      return this.$store.getters.getImageByArtist(artist);
+    },
+    getRandom(arr, n) {
+      const result = new Array(n);
+      let len = arr.length;
+      const taken = new Array(len);
+      if (n > len)
+        throw new RangeError("getRandom: more elements taken than available");
+      while (n--) {
+        const x = Math.floor(Math.random() * len);
+        result[n] = arr[x in taken ? taken[x] : x];
+        taken[x] = --len in taken ? taken[len] : len;
+      }
+      return result;
+    },
+    genSongsArray(arr) {
+      return arr.map((item) => {
+        const image = this.getImage(item.artist);
+        // set color
+        item.color = image.color;
+        item.tag = this.getSongTag(item);
+        // set image
+        item.image = image.src;
+        return item;
+      });
+    },
+    getCover(song) {
+      const path = require("../" + song.cover);
+      return path;
+    },
+    getSongTag(song) {
+      const randomNum = Math.random();
+      const randomIndex = Math.ceil(randomNum * song.category.length - 1);
+      return song.category[randomIndex];
+    },
+    updateStatus(e) {
+      this.audio = e.target;
+      this.isPlaying = !e.target.paused;
+      this.getTime();
+    },
+    pause() {
+      this.audio.pause();
+    },
+    play(song = null) {
+      if (this.isPlaying && !song) {
+        this.pause();
+        return;
+      } else {
+        if (song) {
+          console.log("There is a song");
+          this.playing = song;
+        }
+        setTimeout(() => {
+          this.audio.play();
+          this.isPlaying = true;
+        }, 100);
+      }
+    },
+    nextSong() {
+      this.isPlaying = false;
+      const songId = this.playing.id;
+      this.previousSongId = songId - 1;
+      if (songId === this.songs.length) {
+        this.play(this.songs[0]);
+      } else {
+        this.play(this.songs[songId]);
+      }
+    },
+    previousSong() {
+      this.isPlaying = false;
+      const previousSong = this.songs[this.previousSongId];
+      this.play(previousSong);
     },
     genShadow(color) {
       return `-webkit-box-shadow: 0px 0px 35px -18px ${color}; 
@@ -186,9 +264,6 @@ export default {
 </script>
 
 <style lang="scss">
-.rounded-large {
-  border-radius: 32px !important;
-}
 .font-bold-medium {
   position: relative;
   font-weight: 900 !important;
@@ -225,12 +300,6 @@ export default {
   position: relative;
   top: -50%;
   transform: translateY(10%);
-  background: url("https://icons.iconarchive.com/icons/harwen/simple/256/Audio-CD-icon.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
 }
 .music-title-box {
   color: white;

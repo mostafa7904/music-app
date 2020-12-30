@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1,
+    "category": ["Chill", "Dance"],
+    "title": "Dancing with a stranger",
+    "artist": "Sam Smith",
+    "src": "https://musicfeed.ir/files/2019/07/Sam-Smith-Normani-Dancing-With-A-Stranger-128.mp3",
+    "cover": "assets/covers/dancing-with-a-stranger.png"
+  },
+  {
+    "id": 2,
+    "category": ["Pop"],
+    "title": "Telephone",
+    "artist": "Lady Gaga",
+    "src": "https://musicfeed.ir/files/2020/03/Lady-Gaga-ft.-Beyonc%C3%A9-Telephone-musicfeed.ir_.mp3",
+    "cover": "assets/covers/telephone.png"
+  },
+  {
+    "id": 3,
+    "category": ["Acoustic", "Rap"],
+    "title": "Call out my name",
+    "artist": "The Weeknd",
+    "src": "https://musicfeed.ir/files/2020/06/Call-Out-My-Name-THE-WEEKND.mp3",
+    "cover": "assets/covers/call-out-my-name.jpg"
+  },
+  {
+    "id": 4,
+    "category": ["Acoustic", "Slow"],
+    "title": "Blue jeans",
+    "artist": "Lana Del Rey",
+    "src": "https://musicfeed.ir/files/2019/07/Lana-Del-Rey-Blue-Jeans-128.mp3",
+    "cover": "assets/covers/blue-jeans.jpg"
+  },
+  {
+    "id": 5,
+    "category": ["Dance", "Workout", "Rap"],
+    "title": "Blinding lights",
+    "artist": "The Weeknd",
+    "src": "https://musicfeed.ir/files/dir/2020/12/The%20Weeknd%20%20%20ROSALIA%20Blinding%20Lights%20(Remix).mp3",
+    "cover": "assets/covers/blinding-lights.jpg"
+  },
+  {
+    "id": 6,
+    "category": ["Rap", "Dance"],
+    "title": "I'm not afraid",
+    "artist": "Eminem",
+    "src": "https://musicfeed.ir/files/2020/03/Eminem-Not-Afraid.mp3",
+    "cover": "assets/covers/not-afraid.jpg"
+  },
+  {
+    "id": 7,
+    "category": ["Rap", "Dance", "Chill"],
+    "title": "Space bound",
+    "artist": "Eminem",
+    "src": "https://musicfeed.ir/files/2020/02/Eminem-Space-Bound-musicfeed.ir_.mp3",
+    "cover": "assets/covers/space-bound.jpg"
+  },
+  {
+    "id": 8,
+    "category": ["Rap", "Dance", "Workout"],
+    "title": "Dark horse",
+    "artist": "Katy Perry",
+    "src": "https://musicfeed.ir/files/2020/03/Katy-Perry-Dark-Horse-musicfeed.ir_.mp3",
+    "cover": "assets/covers/dark-horse.png"
+  },
+  {
+    "id": 9,
+    "category": ["Dance"],
+    "title": "Roar",
+    "artist": "Katy Perry",
+    "src": "https://musicfeed.ir/files/dir/2020/10/Katy%20Perry%20Roar.mp3",
+    "cover": "assets/covers/roar.png"
+  },
+  {
+    "id": 10,
+    "category": ["Dance", "Pop"],
+    "title": "Look what you made me do",
+    "artist": "Taylor Swift",
+    "src": "https://musicfeed.ir/files/2020/01/Taylor-Swift-Look-What-You-Made-Me-Do-musicfeed.ir_.mp3",
+    "cover": "assets/covers/look-what-you-made-me-do.png"
+  },
+  {
+    "id": 11,
+    "category": ["Chill", "Pop"],
+    "title": "Style",
+    "artist": "Taylor Swift",
+    "src": "https://musicfeed.ir/files/dir/2020/11/Taylor%20Swift%20style.mp3",
+    "cover": "assets/covers/style.png"
+  },
+  {
+    "id": 12,
+    "category": ["Pop"],
+    "title": "You should see me in a crown",
+    "artist": "Billie Eilish",
+    "src": "https://musicfeed.ir/files/2020/02/Billie-Eilish-You-Should-See-Me-in-a-Crown-musicfeed.ir_.mp3",
+    "cover": "assets/covers/you-should-see-me-in-a-crown.png"
+  },
+  {
+    "id": 13,
+    "category": ["Pop", "Slow", "Chill"],
+    "title": "Everything I wanted",
+    "artist": "Billie Eilish",
+    "src": "https://musicfeed.ir/files/2019/11/Billie-Eilish-everything-i-wanted.mp3",
+    "cover": "assets/covers/everything-i-wanted.png"
+  }
+]

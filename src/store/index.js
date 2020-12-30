@@ -1,54 +1,27 @@
 import Vue from "vue";
 import Vuex from "vuex";
-
+const images = require("./images.json");
+const songs = require("./songs.json");
+const artists = require("./artists.json");
+const colors = require("./colors.json");
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    chillSongs: [
-      {
-        title: "Dancing with a stranger",
-        artist: "Sam Smith",
-        src:
-          "https://musicfeed.ir/files/2019/07/Sam-Smith-Normani-Dancing-With-A-Stranger-128.mp3",
-      },
-      {
-        title: "Natural",
-        artist: "Imagine dragons",
-        src:
-          "https://musicfeed.ir/files/dir/2020/11/Imagine%20Dragons%20Natural.mp3",
-      },
-    ],
-    topSongs: [
-      {
-        title: "Natural",
-        artist: "Imagine dragons",
-        src:
-          "https://musicfeed.ir/files/dir/2020/11/Imagine%20Dragons%20Natural.mp3",
-      },
-    ],
-    acousticSongs: [
-      {
-        title: "Love me like you do",
-        artist: "Ellie Goulding",
-        src:
-          "https://musicfeed.ir/files/2019/04/Ellie-Goulding-Love-Me-Like-You-Do-128.mp3",
-      },
-    ],
-    danceSongs: [
-      {
-        title: "Blue jeans",
-        artist: "Lana del rey",
-        src:
-          "https://musicfeed.ir/files/2019/07/Lana-Del-Rey-Blue-Jeans-128.mp3",
-      },
-    ],
+    images,
+    songs,
+    artists,
+    colors,
   },
-  mutations: {},
-  actions: {
-    getSong({ state }, id) {
-      state.chillSongs[id];
+  getters: {
+    getImageByArtist: ({ images }) => (artist) => {
+      // This is here because of a stupid error
+      //  https://stackoverflow.com/questions/37241662/using-require-with-a-variable-vs-using-a-string-in-webpack/37241982
+      const image = images[artist];
+      return { src: require("../" + image.src), color: image.color };
     },
   },
+  mutations: {},
+  actions: {},
   modules: {},
 });
