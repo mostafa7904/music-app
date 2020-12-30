@@ -228,7 +228,6 @@ export default {
         return;
       } else {
         if (song) {
-          console.log("There is a song");
           this.playing = song;
         }
         setTimeout(() => {
@@ -255,9 +254,6 @@ export default {
     genShadow(color) {
       return `-webkit-box-shadow: 0px 0px 35px -18px ${color}; 
               box-shadow: 0px 0px 35px -18px ${color};`;
-    },
-    test(attrs) {
-      console.log(attrs);
     },
   },
 };

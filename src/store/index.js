@@ -3,7 +3,6 @@ import Vuex from "vuex";
 const images = require("./images.json");
 const songs = require("./songs.json");
 const artists = require("./artists.json");
-const colors = require("./colors.json");
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -11,7 +10,6 @@ export default new Vuex.Store({
     images,
     songs,
     artists,
-    colors,
   },
   getters: {
     getImageByArtist: ({ images }) => (artist) => {
