@@ -252,8 +252,9 @@ export default {
       this.play(previousSong);
     },
     genShadow(color) {
-      return `-webkit-box-shadow: 0px 0px 35px -18px ${color}; 
-              box-shadow: 0px 0px 35px -18px ${color};`;
+      return `-webkit-box-shadow: 0px 10px 35px -8px ${color};
+              box-shadow: 0px 10px 35px -8px ${color};
+              -moz-box-shadow: 0px 10px 35px -8px ${color};`;
     },
   },
 };
@@ -286,13 +287,17 @@ export default {
   border-top-right-radius: 25px;
   height: 100px;
   background-color: rgba($color: #000000, $alpha: 0.6);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(6px);
   -webkit-box-shadow: 15px -5px 26px 0px rgb(41, 41, 41);
   -moz-box-shadow: 15px -5px 26px 0px rgb(41, 41, 41);
   box-shadow: 15px -5px 26px 0px rgb(41, 41, 41);
 }
 .play-disk {
+  animation: spin infinite 15s linear;
+  -moz-animation: spin infinite 15s linear;
+  -o-animation: spin infinite 15s linear;
+  -webkit-animation: spin infinite 15s linear;
   position: relative;
   top: -50%;
   transform: translateY(10%);
@@ -322,8 +327,28 @@ export default {
   float: right;
   margin-left: 520px;
   transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
   & .music-controls-volume-slider {
     width: 70px;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
   }
 }
 </style>

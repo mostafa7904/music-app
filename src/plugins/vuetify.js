@@ -1,15 +1,27 @@
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
-import minifyTheme from 'minify-css-string'
+import minifyTheme from "minify-css-string";
+import home from "../components/icons/Home.vue";
+import library from "../components/icons/Library.vue";
+import trending from "../components/icons/Trending.vue";
+import listen from "../components/icons/Listen.vue";
 
 Vue.use(Vuetify);
 
 export default new Vuetify({
+  icons: {
+    values: {
+      home: { component: home },
+      library: { component: library },
+      trending: { component: trending },
+      listen: { component: listen },
+    },
+  },
   theme: {
     options: {
       minifyTheme,
       themeCache: {
-        get: key => localStorage.getItem(key),
+        get: (key) => localStorage.getItem(key),
         set: (key, value) => localStorage.setItem(key, value),
       },
     },

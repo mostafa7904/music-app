@@ -102,5 +102,21 @@
     "artist": "Billie Eilish",
     "src": "https://musicfeed.ir/files/2019/11/Billie-Eilish-everything-i-wanted.mp3",
     "cover": "assets/covers/everything-i-wanted.png"
+  },
+  {
+    "id": 14,
+    "category": ["Pop", "Chill"],
+    "title": "Hymm for the weekend",
+    "artist": "Coldplay",
+    "src": "https://musicfeed.ir/files/dir/2020/10/Coldplay%20Ft.%20Beyonc%C3%A9%20Hymn%20for%20the%20Weekend.mp3",
+    "cover": "assets/covers/hymm-for-the-weekend.jpg"
+  },
+  {
+    "id": 15,
+    "category": ["Pop", "Dance"],
+    "title": "Something just like this",
+    "artist": "Coldplay",
+    "src": "https://musicfeed.ir/files/2020/05/The-Chainsmokers-Coldplay-Something-Just-Like-This.mp3",
+    "cover": "assets/covers/something-just-like-this.jpg"
   }
 ]

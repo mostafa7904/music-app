@@ -12,9 +12,10 @@
             outlined
             rounded
             dense
+            color="#1ed760"
             append-icon="mdi-microphone-outline"
             prepend-inner-icon="mdi-circle-outline"
-            label="Search"
+            placeholder="Search"
           ></v-text-field>
         </v-col>
       </v-row>
@@ -49,6 +50,7 @@
           :key="index"
           class="pr-6"
           link
+          exact
           :to="navItem.link"
           exact-active-class="active-nav-link"
         >
@@ -89,16 +91,24 @@ export default {
     miniDrawer: false,
     navItems: [
       {
+        title: "Home",
+        icon: "$home",
+        link: "/",
+      },
+      {
         title: "Listen Now",
-        icon: "mdi-cloud-outline",
+        icon: "$listen",
+        link: "/listen-now",
       },
       {
         title: "Library",
-        icon: "mdi-book-outline",
+        icon: "$library",
+        link: "/library",
       },
       {
         title: "Trending",
-        icon: "#",
+        icon: "$trending",
+        link: "/trending",
       },
     ],
   }),
@@ -117,10 +127,18 @@ export default {
 </script>
 
 <style lang="scss">
+svg {
+  fill: currentColor;
+}
+path {
+  fill: currentColor;
+}
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+}
+.active-nav-link {
+  color: #1ed760 !important;
 }
 </style>
