@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "category": ["Acoustic", "Rap"],
+    "category": ["Acoustic", "Chill"],
     "title": "Call out my name",
     "artist": "The Weeknd",
     "src": "https://musicfeed.ir/files/2020/06/Call-Out-My-Name-THE-WEEKND.mp3",
@@ -118,5 +118,21 @@
     "artist": "Coldplay",
     "src": "https://musicfeed.ir/files/2020/05/The-Chainsmokers-Coldplay-Something-Just-Like-This.mp3",
     "cover": "assets/covers/something-just-like-this.jpg"
+  },
+  {
+    "id": 16,
+    "category": ["Pop", "Dance"],
+    "title": "No tears left to cry",
+    "artist": "Ariana Grande",
+    "src": "https://musicfeed.ir/files/2019/10/Ariana-Grande-No-Tears-Left-to-Cry.mp3",
+    "cover": "assets/covers/no-tears-left-to-cry.jpg"
+  },
+  {
+    "id": 17,
+    "category": ["Acoustic", "Chill", "Slow"],
+    "title": "Stuck with you",
+    "artist": "Ariana Grande",
+    "src": "https://musicfeed.ir/files/2020/05/Justin-Bieber-ft.-Ariana-Grande-Stuck-with-U.mp3",
+    "cover": "assets/covers/stuck-with-you.jpg"
   }
 ]

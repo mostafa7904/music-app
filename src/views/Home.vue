@@ -24,31 +24,13 @@
         v-for="(mostPopular, index) in mostPopulars"
         :key="index"
       >
-        <v-card
-          class="music-card"
-          rounded="xl"
-          :ripple="false"
-          @click.stop="play(mostPopular)"
-          :style="genShadow(mostPopular.color)"
-          :color="mostPopular.color"
-          min-height="310"
-          max-height="350"
-        >
-          <v-card-title class="d-flex justify-space-between">
-            <v-icon>mdi-wave</v-icon>
-            <v-icon v-if="isSongPlaying(mostPopular)">mdi-speaker</v-icon>
-          </v-card-title>
-          <v-card-text class="font-bold-medium">{{
-            mostPopular.tag
-          }}</v-card-text>
-          <v-img
-            class="mx-auto card-image"
-            :src="mostPopular.image"
-            max-width="200"
-            min-height="200"
-            max-height="100%"
-          ></v-img>
-        </v-card>
+        <music-card
+          :isPlaying="isSongPlaying(mostPopular)"
+          v-once
+          @musicPlay="play"
+          :song="mostPopular"
+          :cardTitle="getSongTag(mostPopular)"
+        />
       </v-col>
     </v-row>
     <div class="white--text font-weight-bold text-h5 d-flex justify-start my-6">
@@ -62,30 +44,12 @@
         v-for="(mightLike, index) in mightLikes"
         :key="index"
       >
-        <v-card
-          :ripple="false"
-          @click.stop="play(mightLike)"
-          :style="genShadow(mightLike.color)"
-          :color="mightLike.color"
-          rounded="xl"
-          min-height="310"
-          max-height="350"
-        >
-          <v-card-title class="d-flex justify-space-between">
-            <v-icon>mdi-wave</v-icon>
-            <v-icon v-if="isSongPlaying(mightLike)">mdi-speaker</v-icon>
-          </v-card-title>
-          <v-card-text class="font-bold-medium">{{
-            mightLike.artist
-          }}</v-card-text>
-          <v-img
-            class="mx-auto card-image"
-            :src="mightLike.image"
-            max-width="200"
-            min-height="200"
-            max-height="100%"
-          ></v-img>
-        </v-card>
+        <music-card
+          :isPlaying="isSongPlaying(mightLike)"
+          @musicPlay="play"
+          :song="mightLike"
+          :cardTitle="mightLike.artist"
+        />
       </v-col>
     </v-row>
     <div
@@ -129,13 +93,16 @@
 
 <script>
 import { mapState } from "vuex";
+import MusicCard from "../components/MusicCard.vue";
 export default {
+  components: { MusicCard },
   name: "Home",
   computed: {
     ...mapState({
       songs: (state) => state.songs,
       images: (state) => state.images,
       artists: (state) => state.artists,
+      categories: (state) => state.categories,
     }),
   },
   data: () => ({
@@ -143,7 +110,6 @@ export default {
     isPlaying: false,
     audio: null,
     musicTime: 0,
-    buffered: 0,
     loadingApp: true,
     playing: {},
     mightLikes: [],
@@ -173,10 +139,30 @@ export default {
       this.musicTime = (current / duration) * 100;
     },
     async init() {
-      const mightLikes = this.getRandom(this.songs, 4);
-      const mostPopular = this.getRandom(this.songs, 4);
+      const mightLikes = this.genMightLikes();
+      const mostPopular = this.genMostPopular();
       this.mightLikes = this.genSongsArray(mightLikes);
       this.mostPopulars = this.genSongsArray(mostPopular);
+    },
+    genMightLikes() {
+      const songs = [];
+      this.artists.forEach((artist) => {
+        const song = this.songs.find((item) => item.artist === artist);
+        songs.push(song);
+      });
+      return this.getRandom(songs, 4);
+    },
+    genMostPopular() {
+      const songs = [];
+      this.categories.forEach((category) => {
+        const song = this.songs.find((item) =>
+          item.category.includes(category)
+        );
+        if (!songs.includes(song)) {
+          songs.push(song);
+        }
+      });
+      return this.getRandom(songs, 4);
     },
     getImage(artist) {
       return this.$store.getters.getImageByArtist(artist);
@@ -250,11 +236,6 @@ export default {
       this.isPlaying = false;
       const previousSong = this.songs[this.previousSongId];
       this.play(previousSong);
-    },
-    genShadow(color) {
-      return `-webkit-box-shadow: 0px 10px 35px -8px ${color};
-              box-shadow: 0px 10px 35px -8px ${color};
-              -moz-box-shadow: 0px 10px 35px -8px ${color};`;
     },
   },
 };
