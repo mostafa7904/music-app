@@ -5,6 +5,8 @@ import home from "../components/icons/Home.vue";
 import library from "../components/icons/Library.vue";
 import trending from "../components/icons/Trending.vue";
 import listen from "../components/icons/Listen.vue";
+import volumeHigh from "../components/icons/VolumeHigh.vue";
+import volumeOff from "../components/icons/VolumeOff.vue";
 
 Vue.use(Vuetify);
 
@@ -15,6 +17,8 @@ export default new Vuetify({
       library: { component: library },
       trending: { component: trending },
       listen: { component: listen },
+      "volume-high": { component: volumeHigh },
+      "volume-off": { component: volumeOff },
     },
   },
   theme: {

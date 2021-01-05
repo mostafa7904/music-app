@@ -26,7 +26,6 @@
       >
         <music-card
           :isPlaying="isSongPlaying(mostPopular)"
-          v-once
           @musicPlay="play"
           :song="mostPopular"
           :cardTitle="getSongTag(mostPopular)"

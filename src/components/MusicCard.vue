@@ -10,9 +10,9 @@
   >
     <v-card-title class="d-flex justify-space-between">
       <v-icon>mdi-wave</v-icon>
-      <v-icon v-if="isPlaying">mdi-speaker</v-icon>
+      <v-icon v-if="isPlaying">$volume-high</v-icon>
     </v-card-title>
-    <v-card-text class="font-bold-medium">{{ cardTitle }}</v-card-text>
+    <v-card-text class="font-bold-medium" v-once>{{ cardTitle }}</v-card-text>
     <v-img
       class="mx-auto card-image"
       :src="song.image"
