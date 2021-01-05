@@ -54,7 +54,7 @@
           :to="navItem.link"
           exact-active-class="active-nav-link"
         >
-          <v-tooltip right>
+          <v-tooltip right :disabled="!miniDrawer">
             <template v-slot:activator="{ on, attrs }">
               <v-icon v-bind="attrs" v-on="on" class="mr-6">{{
                 navItem.icon
@@ -126,7 +126,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 svg {
   fill: currentColor;
 }

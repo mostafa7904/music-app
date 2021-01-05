@@ -8,5 +8,6 @@
   "Coldplay": { "src": "assets/chris-martin.webp", "color": "#7103FF" },
   "Taylor Swift": { "src": "assets/taylor-swift.webp", "color": "#FF6416" },
   "Sam Smith": { "src": "assets/sam-smith.webp", "color": "#731414" },
-  "Ariana Grande": { "src": "assets/ariana-grande.webp", "color": "#A62940" }
+  "Ariana Grande": { "src": "assets/ariana-grande.webp", "color": "#A62940" },
+  "Post Malone": { "src": "assets/post-malone.webp", "color": "#A62940" }
 }
