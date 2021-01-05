@@ -54,7 +54,7 @@
           :to="navItem.link"
           exact-active-class="active-nav-link"
         >
-          <v-tooltip right :disabled="!miniDrawer">
+          <v-tooltip nudge-right="8" right :z-index="miniDrawer ? 900000 : -5">
             <template v-slot:activator="{ on, attrs }">
               <v-icon v-bind="attrs" v-on="on" class="mr-6">{{
                 navItem.icon
@@ -66,7 +66,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-main class="mb-16 pb-16">
+    <v-main class="mb-16 pb-16 mx-md-10 mx-3">
       <v-container fluid>
         <router-view />
       </v-container>
@@ -119,7 +119,6 @@ export default {
         this.drawer = !this.drawer;
       } else {
         this.miniDrawer = !this.miniDrawer;
-        // this.drawer = !this.drawer;
       }
     },
   },
