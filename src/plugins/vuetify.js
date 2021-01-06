@@ -7,6 +7,15 @@ import trending from "../components/icons/Trending.vue";
 import listen from "../components/icons/Listen.vue";
 import volumeHigh from "../components/icons/VolumeHigh.vue";
 import volumeOff from "../components/icons/VolumeOff.vue";
+import play from "../components/icons/Play.vue";
+import forward from "../components/icons/Forward.vue";
+import back from "../components/icons/Back.vue";
+import pause from "../components/icons/Pause.vue";
+import dotsVertical from "../components/icons/DotsVertical.vue";
+import spotify from "../components/icons/Spotify.vue";
+import search from "../components/icons/Search.vue";
+import menu from "../components/icons/Menu.vue";
+import microphone from "../components/icons/Microphone.vue";
 
 Vue.use(Vuetify);
 
@@ -19,6 +28,15 @@ export default new Vuetify({
       listen: { component: listen },
       "volume-high": { component: volumeHigh },
       "volume-off": { component: volumeOff },
+      play: { component: play },
+      pause: { component: pause },
+      forward: { component: forward },
+      back: { component: back },
+      "dots-vertical": { component: dotsVertical },
+      spotify: { component: spotify },
+      search: { component: search },
+      menu: { component: menu },
+      microphone: { component: microphone },
     },
   },
   theme: {

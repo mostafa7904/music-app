@@ -1,5 +1,5 @@
 {
-  "Eminem": { "src": "assets/eminem.webp", "color": "#D92B04" },
+  "Eminem": { "src": "assets/eminem.webp", "color": "#FB8505" },
   "Billie Eilish": { "src": "assets/billie.webp", "color": "#00E865" },
   "The Weeknd": { "src": "assets/weeknd.webp", "color": "#F2B035" },
   "Katy Perry": { "src": "assets/katy-parry.webp", "color": "#F5B506" },
@@ -9,5 +9,6 @@
   "Taylor Swift": { "src": "assets/taylor-swift.webp", "color": "#FF6416" },
   "Sam Smith": { "src": "assets/sam-smith.webp", "color": "#731414" },
   "Ariana Grande": { "src": "assets/ariana-grande.webp", "color": "#A62940" },
-  "Post Malone": { "src": "assets/post-malone.webp", "color": "#A62940" }
+  "Post Malone": { "src": "assets/post-malone.webp", "color": "#EB4668" },
+  "Justin Bieber": { "src": "assets/justin-bieber.webp", "color": "#F27E63" }
 }

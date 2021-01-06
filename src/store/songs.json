@@ -41,7 +41,7 @@
   },
   {
     "id": 6,
-    "category": ["Rap", "Dance"],
+    "category": ["Rap"],
     "title": "I'm not afraid",
     "artist": "Eminem",
     "src": "https://musicfeed.ir/files/2020/03/Eminem-Not-Afraid.mp3",
@@ -49,7 +49,7 @@
   },
   {
     "id": 7,
-    "category": ["Rap", "Dance", "Chill"],
+    "category": ["Rap", "Chill"],
     "title": "Space bound",
     "artist": "Eminem",
     "src": "https://musicfeed.ir/files/2020/02/Eminem-Space-Bound-musicfeed.ir_.mp3",
@@ -150,5 +150,13 @@
     "artist": "Post Malone",
     "src": "https://musicfeed.ir/files/2020/02/Post-Malone-Swae-Lee-Sunflower-musicfeed.ir_.mp3",
     "cover": "assets/covers/sunflower.jpg"
+  },
+  {
+    "id": 20,
+    "category": ["Rap", "Dance"],
+    "title": "Let me love you",
+    "artist": "Justin Bieber",
+    "src": "https://musicfeed.ir/files/2020/02/DJ-Snake-Justin-Bieber-Let-me-love-you-musicfeed.ir_.mp3",
+    "cover": "assets/covers/let-me-love-you.jpg"
   }
 ]

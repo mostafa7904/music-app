@@ -1,22 +1,23 @@
 <template>
   <v-app id="app">
     <v-app-bar color="black" elevation="0" app class="py-4">
-      <v-app-bar-nav-icon
-        class="mb-6"
-        @click.stop="drawerMenuClick"
-        v-if="screenIsSmall"
-      ></v-app-bar-nav-icon>
+      <v-icon class="mb-6" @click.stop="drawerMenuClick" v-if="screenIsSmall"
+        >$menu</v-icon
+      >
       <v-row justify="space-between" v-if="!screenIsSmall">
         <v-col md="3" cols="12">
           <v-text-field
             outlined
             rounded
             dense
-            color="#1ed760"
-            append-icon="mdi-microphone-outline"
-            prepend-inner-icon="mdi-circle-outline"
+            append-icon="$microphone"
+            @click:append.stop=""
             placeholder="Search"
-          ></v-text-field>
+          >
+            <template #prepend-inner>
+              <v-icon size="17" class="mt-1 mr-3" color="">$search</v-icon>
+            </template>
+          </v-text-field>
         </v-col>
       </v-row>
     </v-app-bar>
@@ -30,16 +31,14 @@
       <v-list>
         <v-list-item>
           <v-list-item-avatar>
-            <v-icon size="35" v-if="!miniDrawer">mdi-spotify</v-icon>
-            <v-icon class="mr-2" v-else @click.stop="drawerMenuClick"
-              >mdi-chevron-right</v-icon
+            <v-icon size="35" v-if="!miniDrawer">$spotify</v-icon>
+            <v-icon size="20" class="mr-2" v-else @click.stop="drawerMenuClick"
+              >$menu</v-icon
             >
           </v-list-item-avatar>
           <v-list-item-title class="font-black">Spotify</v-list-item-title>
           <v-list-item-action>
-            <v-icon @click.stop="drawerMenuClick"
-              >mdi-chevron-{{ miniDrawer ? "right" : "left" }}</v-icon
-            >
+            <v-icon @click.stop="drawerMenuClick">$menu</v-icon>
           </v-list-item-action>
         </v-list-item>
       </v-list>

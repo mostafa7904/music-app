@@ -8,9 +8,11 @@
     min-height="310"
     max-height="350"
   >
-    <v-card-title class="d-flex justify-space-between">
-      <v-icon>mdi-wave</v-icon>
-      <v-icon v-if="isPlaying">$volume-high</v-icon>
+    <v-card-title>
+      <v-icon class="music-playing-icon" v-show="isPlaying"
+        >$volume-high</v-icon
+      >
+      <v-icon @click.stop="" class="dots-music-card">$dots-vertical</v-icon>
     </v-card-title>
     <v-card-text class="font-bold-medium" v-once>{{ cardTitle }}</v-card-text>
     <v-img
@@ -44,4 +46,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.music-playing-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.dots-music-card {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+</style>

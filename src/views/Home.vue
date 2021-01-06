@@ -70,11 +70,11 @@
       </div>
       <div class="music-controls d-flex align-center">
         <div class="music-controls-buttons">
-          <v-icon @click="previousSong">mdi-skip-backward</v-icon>
+          <v-icon @click="previousSong">$back</v-icon>
           <v-icon class="mx-3" @click="play()"
-            >mdi-{{ isPlaying ? "pause" : "play" }}</v-icon
+            >${{ isPlaying ? "pause" : "play" }}</v-icon
           >
-          <v-icon @click="nextSong">mdi-skip-forward</v-icon>
+          <v-icon @click="nextSong">$forward</v-icon>
         </div>
         <v-progress-linear
           :indeterminate="loadingSong"
@@ -138,12 +138,12 @@ export default {
       this.musicTime = (current / duration) * 100;
     },
     async init() {
-      const mightLikes = this.genMightLikes();
-      const mostPopular = this.genMostPopular();
-      this.mightLikes = this.genSongsArray(mightLikes);
-      this.mostPopulars = this.genSongsArray(mostPopular);
+      const mightLikes = await this.genMightLikes();
+      const mostPopular = await this.genMostPopular();
+      this.mightLikes = await this.genSongsArray(mightLikes);
+      this.mostPopulars = await this.genSongsArray(mostPopular);
     },
-    genMightLikes() {
+    async genMightLikes() {
       const songs = [];
       this.artists.forEach((artist) => {
         const song = this.songs.find((item) => item.artist === artist);
@@ -151,13 +151,13 @@ export default {
       });
       return this.getRandom(songs, 4);
     },
-    genMostPopular() {
+    async genMostPopular() {
       const songs = [];
       this.categories.forEach((category) => {
         const song = this.songs.find((item) =>
           item.category.includes(category)
         );
-        if (!songs.includes(song)) {
+        if (!songs.includes(song) && !this.mightLikes.includes(song)) {
           songs.push(song);
         }
       });
@@ -179,7 +179,7 @@ export default {
       }
       return result;
     },
-    genSongsArray(arr) {
+    async genSongsArray(arr) {
       return arr.map((item) => {
         const image = this.getImage(item.artist);
         // set color
