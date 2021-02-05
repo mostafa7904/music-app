@@ -51,10 +51,12 @@
         />
       </v-col>
     </v-row>
-    <div
-      class="play-bar-box d-flex flex-column flex-md-row align-center justify-space-around"
-    >
-      <v-avatar class="play-disk" size="100" rounded="circle">
+    <div class="play-bar-box d-flex align-center justify-space-around">
+      <v-avatar
+        class="play-disk"
+        :size="screenIsSmall ? 60 : 100"
+        rounded="circle"
+      >
         <v-img
           :src="
             playing.cover
@@ -97,6 +99,9 @@ export default {
   components: { MusicCard },
   name: "Home",
   computed: {
+    screenIsSmall: function() {
+      return this.$vuetify.breakpoint.sm || this.$vuetify.breakpoint.xs;
+    },
     ...mapState({
       songs: (state) => state.songs,
       images: (state) => state.images,
@@ -272,6 +277,11 @@ export default {
   -webkit-box-shadow: 15px -5px 26px 0px rgb(41, 41, 41);
   -moz-box-shadow: 15px -5px 26px 0px rgb(41, 41, 41);
   box-shadow: 15px -5px 26px 0px rgb(41, 41, 41);
+  @media screen and (max-width: 960px) {
+    transform: none;
+    left: 0;
+    width: 100%;
+  }
 }
 .play-disk {
   animation: spin infinite 15s linear;
@@ -281,38 +291,47 @@ export default {
   position: relative;
   top: -50%;
   transform: translateY(10%);
+  @media screen and (max-width: 960px) {
+    top: 0;
+    left: 10px;
+    float: left;
+  }
 }
 .music-title-box {
   color: white;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  @media screen and (max-width: 425px) {
+    max-width: 80px;
+  }
 }
 .music-title {
   font-weight: bold;
   font-size: 0.9rem;
+  @media screen and (max-width: 425px) {
+    font-size: 0.8rem;
+  }
 }
 .music-artist {
   font-weight: lighter;
   font-size: 0.8rem;
+  @media screen and (max-width: 425px) {
+    font-size: 0.7rem;
+  }
 }
 .music-controls-slider {
   width: 300px;
+  @media screen and (max-width: 960px) {
+    display: none;
+  }
 }
-.music-controls-volume {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  top: 50%;
-  float: right;
-  margin-left: 520px;
-  transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  & .music-controls-volume-slider {
-    width: 70px;
+.music-controls-buttons {
+  @media screen and (max-width: 960px) {
+    & button svg {
+      width: 18px;
+      height: 18px;
+    }
   }
 }
 @keyframes spin {

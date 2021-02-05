@@ -10,5 +10,6 @@
   "Sam Smith": { "src": "assets/sam-smith.webp", "color": "#731414" },
   "Ariana Grande": { "src": "assets/ariana-grande.webp", "color": "#A62940" },
   "Post Malone": { "src": "assets/post-malone.webp", "color": "#EB4668" },
-  "Justin Bieber": { "src": "assets/justin-bieber.webp", "color": "#F27E63" }
+  "Justin Bieber": { "src": "assets/justin-bieber.webp", "color": "#F27E63" },
+  "Drake": { "src": "assets/drake.webp", "color": "#F2A74B" }
 }

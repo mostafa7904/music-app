@@ -158,5 +158,13 @@
     "artist": "Justin Bieber",
     "src": "https://musicfeed.ir/files/2020/02/DJ-Snake-Justin-Bieber-Let-me-love-you-musicfeed.ir_.mp3",
     "cover": "assets/covers/let-me-love-you.jpg"
+  },
+  {
+    "id": 21,
+    "category": ["Rap"],
+    "title": "God's plan",
+    "artist": "Drake",
+    "src": "https://musicfeed.ir/files/2020/01/Drake-Gods-Plan-musicfeed.ir_.mp3",
+    "cover": "assets/covers/gods-plan.jpg"
   }
 ]
