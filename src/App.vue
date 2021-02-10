@@ -69,21 +69,21 @@
       <v-container fluid>
         <router-view />
       </v-container>
+      <keep-alive>
+        <play-bar />
+      </keep-alive>
     </v-main>
   </v-app>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import PlayBar from "./components/PlayBar.vue";
 export default {
+  components: { PlayBar },
   name: "app",
   computed: {
-    screenIsSmall: function() {
-      return (
-        this.$vuetify.breakpoint.md ||
-        this.$vuetify.breakpoint.sm ||
-        this.$vuetify.breakpoint.xs
-      );
-    },
+    ...mapGetters(["screenIsSmall"]),
   },
   data: () => ({
     drawer: true,

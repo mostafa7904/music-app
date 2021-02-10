@@ -57,4 +57,21 @@ export default {
   top: 20px;
   right: 20px;
 }
+.font-bold-medium {
+  position: relative;
+  font-weight: 900 !important;
+  color: white !important;
+  font-size: 25px !important;
+}
+
+.d-hidden {
+  opacity: 0;
+}
+.card-image {
+  border-radius: 0 !important;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
 </style>
