@@ -164,7 +164,7 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   @media screen and (max-width: 425px) {
-    max-width: 80px;
+    max-width: 150px;
   }
 }
 .music-title {
@@ -190,11 +190,9 @@ export default {
   }
 }
 .music-controls-buttons {
-  @media screen and (max-width: 960px) {
-    & button svg {
-      width: 18px;
-      height: 18px;
-    }
+  & .v-icon {
+    height: 18px !important;
+    width: 18px !important;
   }
 }
 @keyframes spin {
