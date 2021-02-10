@@ -13,7 +13,7 @@ Any contributions would be appreciated.
 
 ## Rules
 There are some simple rules before you contribute
- - If you are adding any images make sure they are optimized ([image optimization process](#optimazation))
+ - If you are adding any images make sure they are optimized ([image optimization process](#image-optimazation))
  - You can add any song you want from the source in the code (no worries about copyright)
  - If possible do not add any external libraries
 
