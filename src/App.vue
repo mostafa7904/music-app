@@ -36,7 +36,7 @@
               >$menu</v-icon
             >
           </v-list-item-avatar>
-          <v-list-item-title class="font-black">Spotify</v-list-item-title>
+          <v-list-item-title class="font-black">Music app</v-list-item-title>
           <v-list-item-action>
             <v-icon @click.stop="drawerMenuClick">$menu</v-icon>
           </v-list-item-action>

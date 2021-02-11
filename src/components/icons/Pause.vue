@@ -5,7 +5,7 @@
     width="25"
     height="25"
   >
-    <title>pause--filled</title>
+    <title>Pause</title>
     <path
       d="M12,6H10A2,2,0,0,0,8,8V24a2,2,0,0,0,2,2h2a2,2,0,0,0,2-2V8a2,2,0,0,0-2-2Z"
     />
