@@ -128,18 +128,27 @@ export default {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
   width: 60%;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   height: 100px;
   background-color: rgba($color: #000000, $alpha: 0.6);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(6px);
+  box-shadow: 15px -5px 26px 0px rgb(41, 41, 41);
   -webkit-box-shadow: 15px -5px 26px 0px rgb(41, 41, 41);
   -moz-box-shadow: 15px -5px 26px 0px rgb(41, 41, 41);
-  box-shadow: 15px -5px 26px 0px rgb(41, 41, 41);
   @media screen and (max-width: 960px) {
     transform: none;
+    -webkit-transform: none;
+    -o-transform: none;
+    -ms-transform: none;
+    -moz-transform: none;
     left: 0;
     width: 100%;
   }
@@ -152,6 +161,10 @@ export default {
   position: relative;
   top: -50%;
   transform: translateY(10%);
+  -webkit-transform: translateY(10%);
+  -o-transform: translateY(10%);
+  -ms-transform: translateY(10%);
+  -moz-transform: translateY(10%);
   @media screen and (max-width: 960px) {
     top: 0;
     left: 10px;
@@ -190,9 +203,11 @@ export default {
   }
 }
 .music-controls-buttons {
-  & .v-icon {
-    height: 18px !important;
-    width: 18px !important;
+  @media screen and (max-width: 960px) {
+    & .v-icon {
+      height: 18px !important;
+      width: 18px !important;
+    }
   }
 }
 @keyframes spin {
