@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from "vuex";
+import { mapState } from "vuex";
 export default {
   name: "play-bar",
   data: () => ({
@@ -69,7 +69,6 @@ export default {
       audio: (state) => state.playBar.audio,
       previousSongId: (state) => state.playBar.previousSongId,
     }),
-    ...mapGetters(["screenIsSmall"]),
   },
   async mounted() {
     const audio = document.querySelector("audio#music");

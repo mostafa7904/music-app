@@ -1,9 +1,11 @@
 <template>
-  <div>{{ $route.params.name }}</div>
+  <div>
+    {{ $route.params.name }}
+  </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "artist-page",
+};
 </script>
-
-<style></style>

@@ -66,15 +66,11 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import PlayBar from "./components/PlayBar.vue";
 import SearchBox from "./components/SearchBox.vue";
 export default {
   components: { PlayBar, SearchBox },
   name: "app",
-  computed: {
-    ...mapGetters(["screenIsSmall"]),
-  },
   data: () => ({
     drawer: true,
     miniDrawer: false,
