@@ -1,7 +1,7 @@
-import Vue from "vue";
 import ColorThief from "colorthief";
 
-Vue.mixin({
+export default {
+  name: "visualizer",
   data: () => ({
     audioEl: null,
     canvas: null,
@@ -11,6 +11,7 @@ Vue.mixin({
     fftSize: 512,
     canvHeight: 0,
     canvWidth: 0,
+    colors: [],
   }),
   methods: {
     /**
@@ -27,7 +28,8 @@ Vue.mixin({
       colors = colors.map((item) => {
         return `rgb(${item[0]},${item[1]},${item[2]})`;
       });
-      return colors;
+      this.colors = colors;
+      this.colorsLength = this.colors.length + 10;
     },
     /**
      *
@@ -36,9 +38,9 @@ Vue.mixin({
      * @param {HTMLImageElement} img The image which will be visulized
      * @param {HTMLAudioElement} audio The audio element which will be analized and visulized
      */
-    async visulize(img, audio) {
+    async visulize(img) {
       try {
-        await this.setup(img, audio);
+        await this.setup(img, this.$store.state.playBar.audio);
         if (!this.audioCtx) this.setAnalyser();
 
         this.mainLoop();
@@ -71,19 +73,40 @@ Vue.mixin({
      */
     draw(data) {
       // This is the drawing part
-      this.ctx.fillStyle = "white";
+      this.ctx.fillStyle = "transparent";
       this.ctx.clearRect(0, 0, this.canvWidth, this.canvHeight);
       this.ctx.fillRect(0, 0, this.canvWidth, this.canvHeight);
       this.ctx.lineWidth = this.lineWidth;
-      data.forEach((_, index) => {
-        const barHeight = data[index] / 2;
-        this.ctx.strokeStyle = "rgb(" + (barHeight + 100) + ",50,50)";
-        this.ctx.beginPath();
-        this.ctx.moveTo(index * this.lineWidth + this.lineSpace, 0);
-        this.ctx.lineTo(index * this.lineWidth + this.lineSpace, barHeight);
-        this.ctx.stroke();
-        this.ctx.closePath();
-      });
+      for (let i = 0; i < this.colorsLength; i++) {
+        if (i >= 10) {
+          const barHeight = data[i] / 2;
+          this.ctx.beginPath();
+          this.ctx.fillStyle = this.colors[i - 10];
+          if (i % 2 === 0) {
+            this.ctx.ellipse(
+              0,
+              i,
+              barHeight,
+              this.canvHeight,
+              Math.PI / 4,
+              0,
+              2 * Math.PI
+            );
+          } else {
+            this.ctx.ellipse(
+              0,
+              i,
+              this.canvWidth,
+              barHeight,
+              Math.PI / 4,
+              0,
+              2 * Math.PI
+            );
+          }
+          this.ctx.fill();
+          this.ctx.closePath();
+        }
+      }
     },
     /**
      *
@@ -93,7 +116,7 @@ Vue.mixin({
     async setAnalyser() {
       this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       this.analyser = this.audioCtx.createAnalyser();
-      const src = this.audioCtx.createMediaElementSource(this.audio);
+      const src = this.audioCtx.createMediaElementSource(this.audioEl);
 
       src.connect(this.analyser);
       this.analyser.fftSize = this.fftSize;
@@ -110,13 +133,16 @@ Vue.mixin({
       const canvas = document.createElement("canvas");
       canvas.width = img.width + 100;
       canvas.height = img.height + 100;
+      canvas.style.position = "relative";
+      canvas.style.top = 0;
+      canvas.style.left = 0;
       canvas.id = "audio_visual";
-      const ctx = canvas.getContext("2d");
-      this.ctx = ctx;
+      this.ctx = canvas.getContext("2d");
       this.audioEl = audio;
       this.canvas = canvas;
       this.canvHeight = this.canvas.height;
       this.canvWidth = this.canvas.width;
+      this.getColors(img);
     },
   },
-});
+};

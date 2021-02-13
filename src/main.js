@@ -5,7 +5,6 @@ import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
 // import mixins
-import "./mixins/visulizer";
 import "./mixins/global";
 
 Vue.config.productionTip = false;
