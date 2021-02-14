@@ -73,5 +73,9 @@ export default {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
 }
 </style>

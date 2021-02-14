@@ -6,18 +6,7 @@
       >
       <v-row justify="space-between" v-if="!screenIsSmall">
         <v-col md="3" cols="12">
-          <v-text-field
-            outlined
-            rounded
-            dense
-            append-icon="$microphone"
-            @click:append.stop=""
-            placeholder="Search"
-          >
-            <template #prepend-inner>
-              <v-icon size="17" class="mt-1 mr-3" color="">$search</v-icon>
-            </template>
-          </v-text-field>
+          <search-box />
         </v-col>
       </v-row>
     </v-app-bar>
@@ -36,7 +25,7 @@
               >$menu</v-icon
             >
           </v-list-item-avatar>
-          <v-list-item-title class="font-black">Spotify</v-list-item-title>
+          <v-list-item-title class="font-black">Music app</v-list-item-title>
           <v-list-item-action>
             <v-icon @click.stop="drawerMenuClick">$menu</v-icon>
           </v-list-item-action>
@@ -77,14 +66,11 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import PlayBar from "./components/PlayBar.vue";
+import SearchBox from "./components/SearchBox.vue";
 export default {
-  components: { PlayBar },
+  components: { PlayBar, SearchBox },
   name: "app",
-  computed: {
-    ...mapGetters(["screenIsSmall"]),
-  },
   data: () => ({
     drawer: true,
     miniDrawer: false,
@@ -108,6 +94,16 @@ export default {
         title: "Trending",
         icon: "$trending",
         link: "/trending",
+      },
+      {
+        title: "Settings",
+        icon: "$settings",
+        link: "/settings",
+      },
+      {
+        title: "About",
+        icon: "$info",
+        link: "/about",
       },
     ],
   }),

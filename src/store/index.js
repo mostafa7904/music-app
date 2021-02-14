@@ -1,6 +1,5 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import Vuetify from "../plugins/vuetify";
 import playBar from "./playBar";
 const images = require("./images.json");
 const songs = require("./songs.json");
@@ -16,13 +15,6 @@ export default new Vuex.Store({
     categories,
   },
   getters: {
-    screenIsSmall: function() {
-      return (
-        Vuetify.framework.breakpoint.md ||
-        Vuetify.framework.breakpoint.sm ||
-        Vuetify.framework.breakpoint.xs
-      );
-    },
     getImageByArtist: ({ images }) => (artist) => {
       // This is here because of a stupid error
       //  https://stackoverflow.com/questions/37241662/using-require-with-a-variable-vs-using-a-string-in-webpack/37241982

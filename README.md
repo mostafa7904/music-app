@@ -3,7 +3,7 @@
 This is simple music streaming app made exclusively with Vue using the vuetify component library.
 Any contributions would be appreciated.
 
-#### _You can see a live working version [here](https://elastic-morse-99c63b.netlify.app/)_
+#### _You can see a live working version [here](https://musicfield.netlify.app/)_
 
 ![screenshot of the website](https://github.com/mostafa7904/music-app/blob/main/imgs/screenshot.webp?raw=true)
 
@@ -17,9 +17,9 @@ There are some simple rules before you contribute
 
 ## Image Optimazation
 
-1.  Make sure the size is correct
-2.  Optimize with lossy setting
-3.  Convert to webp
+1.  [Make sure the size is correct](https://ezgif.com/resize)
+2.  [Optimize with lossy setting](https://shortpixel.com/online-image-compression)
+3.  [Convert to webp](https://ezgif.com/png-to-webp)
 
 ## Note
 
