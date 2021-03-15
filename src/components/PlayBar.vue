@@ -127,6 +127,7 @@ export default {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 900;
   -webkit-transform: translateX(-50%);
   -o-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
@@ -138,7 +139,6 @@ export default {
   background-color: rgba($color: #000000, $alpha: 0.6);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(6px);
   box-shadow: 15px -5px 26px 0px rgb(41, 41, 41);
   -webkit-box-shadow: 15px -5px 26px 0px rgb(41, 41, 41);
   -moz-box-shadow: 15px -5px 26px 0px rgb(41, 41, 41);
