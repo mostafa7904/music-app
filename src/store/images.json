@@ -1,15 +1,67 @@
 {
-  "Eminem": { "src": "assets/eminem.webp", "color": "#FB8505" },
-  "Billie Eilish": { "src": "assets/billie.webp", "color": "#00E865" },
-  "The Weeknd": { "src": "assets/weeknd.webp", "color": "#F2B035" },
-  "Katy Perry": { "src": "assets/katy-parry.webp", "color": "#F5B506" },
-  "Lana Del Rey": { "src": "assets/lana-del-rey.webp", "color": "#6BA5F2" },
-  "Lady Gaga": { "src": "assets/Lady-Gaga.webp", "color": "#E81170" },
-  "Coldplay": { "src": "assets/chris-martin.webp", "color": "#7103FF" },
-  "Taylor Swift": { "src": "assets/taylor-swift.webp", "color": "#FF6416" },
-  "Sam Smith": { "src": "assets/sam-smith.webp", "color": "#731414" },
-  "Ariana Grande": { "src": "assets/ariana-grande.webp", "color": "#A62940" },
-  "Post Malone": { "src": "assets/post-malone.webp", "color": "#EB4668" },
-  "Justin Bieber": { "src": "assets/justin-bieber.webp", "color": "#F27E63" },
-  "Drake": { "src": "assets/drake.webp", "color": "#F2A74B" }
+  "Eminem": {
+    "src": "assets/eminem.webp",
+    "color": "#FB8505",
+    "largeImage": "assets/large/eminem.webp"
+  },
+  "Billie Eilish": {
+    "src": "assets/billie-eilish.webp",
+    "color": "#00E865",
+    "largeImage": "assets/large/billie-eilish.webp"
+  },
+  "The Weeknd": {
+    "src": "assets/weeknd.webp",
+    "color": "#F2B035",
+    "largeImage": "assets/large/weeknd.webp"
+  },
+  "Katy Perry": {
+    "src": "assets/katy-perry.webp",
+    "color": "#F5B506",
+    "largeImage": "assets/large/katy-perry.webp"
+  },
+  "Lana Del Rey": {
+    "src": "assets/lana-del-rey.webp",
+    "color": "#6BA5F2",
+    "largeImage": "assets/large/lana-del-rey.webp"
+  },
+  "Lady Gaga": {
+    "src": "assets/lady-gaga.webp",
+    "color": "#E81170",
+    "largeImage": "assets/large/lady-gaga.webp"
+  },
+  "Coldplay": {
+    "src": "assets/coldplay.webp",
+    "color": "#7103FF",
+    "largeImage": "assets/large/coldplay.webp"
+  },
+  "Taylor Swift": {
+    "src": "assets/taylor-swift.webp",
+    "color": "#FF6416",
+    "largeImage": "assets/large/taylor-swift.webp"
+  },
+  "Sam Smith": {
+    "src": "assets/sam-smith.webp",
+    "color": "#731414",
+    "largeImage": "assets/large/sam-smith.webp"
+  },
+  "Ariana Grande": {
+    "src": "assets/ariana-grande.webp",
+    "color": "#A62940",
+    "largeImage": "assets/large/ariana-grande.webp"
+  },
+  "Post Malone": {
+    "src": "assets/post-malone.webp",
+    "color": "#EB4668",
+    "largeImage": "assets/large/post-malone.webp"
+  },
+  "Justin Bieber": {
+    "src": "assets/justin-bieber.webp",
+    "color": "#F27E63",
+    "largeImage": "assets/large/justin-bieber.webp"
+  },
+  "Drake": {
+    "src": "assets/drake.webp",
+    "color": "#F2A74B",
+    "largeImage": "assets/large/drake.webp"
+  }
 }

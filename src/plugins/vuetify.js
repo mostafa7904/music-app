@@ -19,6 +19,7 @@ import microphone from "../components/icons/Microphone.vue";
 import settings from "../components/icons/Settings.vue";
 import info from "../components/icons/Info.vue";
 import chevronRight from "../components/icons/ChevronRight.vue";
+import heart from "../components/icons/Heart.vue";
 
 Vue.use(Vuetify);
 
@@ -43,6 +44,7 @@ export default new Vuetify({
       settings: { component: settings },
       info: { component: info },
       "chevron-right": { component: chevronRight },
+      heart: { component: heart },
     },
   },
   theme: {

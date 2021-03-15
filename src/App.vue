@@ -1,6 +1,6 @@
 <template>
   <v-app id="app">
-    <v-app-bar color="black" elevation="0" app class="py-4">
+    <v-app-bar color="transparent" elevation="0" app class="py-4">
       <v-icon class="mb-6" @click.stop="drawerMenuClick" v-if="screenIsSmall"
         >$menu</v-icon
       >
@@ -128,6 +128,7 @@ path {
   fill: currentColor;
 }
 #app {
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
