@@ -24,11 +24,6 @@
     "color": "#6BA5F2",
     "largeImage": "assets/large/lana-del-rey.webp"
   },
-  "Lady Gaga": {
-    "src": "assets/lady-gaga.webp",
-    "color": "#E81170",
-    "largeImage": "assets/large/lady-gaga.webp"
-  },
   "Coldplay": {
     "src": "assets/coldplay.webp",
     "color": "#7103FF",
