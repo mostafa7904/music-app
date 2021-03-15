@@ -9,14 +9,6 @@
   },
   {
     "id": 2,
-    "category": ["Pop"],
-    "title": "Telephone",
-    "artist": "Lady Gaga",
-    "src": "https://musicfeed.ir/files/2020/03/Lady-Gaga-ft.-Beyonc%C3%A9-Telephone-musicfeed.ir_.mp3",
-    "cover": "assets/covers/telephone.png"
-  },
-  {
-    "id": 3,
     "category": ["Acoustic", "Chill"],
     "title": "Call out my name",
     "artist": "The Weeknd",
@@ -24,7 +16,7 @@
     "cover": "assets/covers/call-out-my-name.jpg"
   },
   {
-    "id": 4,
+    "id": 3,
     "category": ["Acoustic", "Slow"],
     "title": "Blue jeans",
     "artist": "Lana Del Rey",
@@ -32,7 +24,7 @@
     "cover": "assets/covers/blue-jeans.jpg"
   },
   {
-    "id": 5,
+    "id": 4,
     "category": ["Workout", "Dance"],
     "title": "Blinding lights",
     "artist": "The Weeknd",
@@ -40,7 +32,7 @@
     "cover": "assets/covers/blinding-lights.jpg"
   },
   {
-    "id": 6,
+    "id": 5,
     "category": ["Rap"],
     "title": "I'm not afraid",
     "artist": "Eminem",
@@ -48,7 +40,7 @@
     "cover": "assets/covers/not-afraid.jpg"
   },
   {
-    "id": 7,
+    "id": 6,
     "category": ["Rap", "Chill"],
     "title": "Space bound",
     "artist": "Eminem",
@@ -56,7 +48,7 @@
     "cover": "assets/covers/space-bound.jpg"
   },
   {
-    "id": 8,
+    "id": 7,
     "category": ["Rap", "Dance", "Workout"],
     "title": "Dark horse",
     "artist": "Katy Perry",
@@ -64,7 +56,7 @@
     "cover": "assets/covers/dark-horse.png"
   },
   {
-    "id": 9,
+    "id": 8,
     "category": ["Dance"],
     "title": "Roar",
     "artist": "Katy Perry",
@@ -72,7 +64,7 @@
     "cover": "assets/covers/roar.png"
   },
   {
-    "id": 10,
+    "id": 9,
     "category": ["Dance", "Pop"],
     "title": "Look what you made me do",
     "artist": "Taylor Swift",
@@ -80,7 +72,7 @@
     "cover": "assets/covers/look-what-you-made-me-do.png"
   },
   {
-    "id": 11,
+    "id": 10,
     "category": ["Chill", "Pop"],
     "title": "Style",
     "artist": "Taylor Swift",
@@ -88,7 +80,7 @@
     "cover": "assets/covers/style.png"
   },
   {
-    "id": 12,
+    "id": 11,
     "category": ["Pop"],
     "title": "You should see me in a crown",
     "artist": "Billie Eilish",
@@ -96,7 +88,7 @@
     "cover": "assets/covers/you-should-see-me-in-a-crown.png"
   },
   {
-    "id": 13,
+    "id": 12,
     "category": ["Pop", "Slow", "Chill"],
     "title": "Everything I wanted",
     "artist": "Billie Eilish",
@@ -104,7 +96,7 @@
     "cover": "assets/covers/everything-i-wanted.png"
   },
   {
-    "id": 14,
+    "id": 13,
     "category": ["Pop", "Chill"],
     "title": "Hymm for the weekend",
     "artist": "Coldplay",
@@ -112,7 +104,7 @@
     "cover": "assets/covers/hymm-for-the-weekend.jpg"
   },
   {
-    "id": 15,
+    "id": 14,
     "category": ["Pop", "Dance"],
     "title": "Something just like this",
     "artist": "Coldplay",
@@ -120,7 +112,7 @@
     "cover": "assets/covers/something-just-like-this.jpg"
   },
   {
-    "id": 16,
+    "id": 15,
     "category": ["Pop", "Dance"],
     "title": "No tears left to cry",
     "artist": "Ariana Grande",
@@ -128,7 +120,7 @@
     "cover": "assets/covers/no-tears-left-to-cry.jpg"
   },
   {
-    "id": 17,
+    "id": 16,
     "category": ["Acoustic", "Chill", "Slow"],
     "title": "Stuck with you",
     "artist": "Ariana Grande",
@@ -136,7 +128,7 @@
     "cover": "assets/covers/stuck-with-you.jpg"
   },
   {
-    "id": 18,
+    "id": 17,
     "category": ["Rap"],
     "title": "Better now",
     "artist": "Post Malone",
@@ -144,7 +136,7 @@
     "cover": "assets/covers/better-now.jpg"
   },
   {
-    "id": 19,
+    "id": 18,
     "category": ["Rap", "Dance"],
     "title": "Sunflower",
     "artist": "Post Malone",
@@ -152,7 +144,7 @@
     "cover": "assets/covers/sunflower.jpg"
   },
   {
-    "id": 20,
+    "id": 19,
     "category": ["Rap", "Dance"],
     "title": "Let me love you",
     "artist": "Justin Bieber",
@@ -160,7 +152,7 @@
     "cover": "assets/covers/let-me-love-you.jpg"
   },
   {
-    "id": 21,
+    "id": 20,
     "category": ["Rap"],
     "title": "God's plan",
     "artist": "Drake",
