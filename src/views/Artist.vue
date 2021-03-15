@@ -1,5 +1,5 @@
 <template>
-  <div class="height-100">
+  <div class="height-fill">
     <div class="artist-cover-filter"></div>
     <v-img
       class="artist-cover"
@@ -96,6 +96,9 @@ export default {
   data: () => ({
     readMore: false,
   }),
+  mounted() {
+    this.$vuetify.goTo(0);
+  },
   methods: {
     play(song) {
       this.$store.dispatch("play", song);
@@ -112,8 +115,8 @@ export default {
   left: 0;
   transform: scale(1.1);
 }
-.height-100 {
-  height: 900px;
+.height-fill {
+  min-height: 900px;
 }
 .artist-cover-filter {
   position: absolute;
