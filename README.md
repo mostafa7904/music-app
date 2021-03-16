@@ -25,6 +25,8 @@ There are some simple rules before you contribute
 
 This project is under development so expect any bugs.
 
+The structure of the website might look weird but you should know that I'm trying to build this website without a backend. Therefore everything has to be done in the front-end. Music streaming apps are very different in the real world.
+
 ## Project setup
 
 ```
