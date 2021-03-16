@@ -36,22 +36,31 @@
         <v-list color="transparent">
           <template v-for="(song, idx) in artistSongs">
             <v-hover :key="idx" v-slot="{ hover }">
-              <v-list-item :key="idx" class="song-item" @click.stop>
-                <v-list-item-avatar @click="play(song)">
-                  <v-avatar tile>
-                    <v-img :src="require('../' + song.cover)"> </v-img>
-                  </v-avatar>
+              <v-list-item
+                :key="idx"
+                class="song-item mx-4"
+                @click.stop="play(song)"
+              >
+                <v-list-item-avatar tile>
+                  <v-overlay
+                    :value="hover"
+                    absolute
+                    color="black"
+                    opacity="0.7"
+                  >
+                    <v-icon size="20">
+                      $play
+                    </v-icon>
+                  </v-overlay>
+                  <v-img :src="require('../' + song.cover)"> </v-img>
                 </v-list-item-avatar>
-                <v-list-item-title @click="play(song)">
+                <v-list-item-title>
                   {{ song.title }}
                 </v-list-item-title>
                 <v-list-item-subtitle>
-                  {{ artistName }}
+                  {{ song.album }}
                 </v-list-item-subtitle>
-                <v-list-item-action
-                  class="d-table"
-                  :class="hover ? '' : 'd-hidden'"
-                >
+                <v-list-item-action :class="hover ? '' : 'd-hidden'">
                   <v-btn icon>
                     <v-icon>
                       $heart
@@ -142,8 +151,5 @@ export default {
   .artist-bio {
     max-width: 300px;
   }
-}
-.d-hidden {
-  opacity: 0;
 }
 </style>

@@ -10,7 +10,7 @@
     item-text="title"
     color="#4edf93"
     :search-input.sync="searchTerm"
-    no-data-text="Try typing blinding lights..."
+    no-data-text="Try searching The weeknd..."
     placeholder="Search"
   >
     <template #prepend-inner>
@@ -21,16 +21,11 @@
     </template>
 
     <template #item="{item}" class="mt-12">
-      <v-list-item two-line :to="`search?q=${item.title}`">
+      <v-list-item two-line :to="`/search?q=${item.title}`">
         <v-list-item-content class="text-left">
           <v-list-item-title>{{ item.title }}</v-list-item-title>
           <v-list-item-subtitle>{{ item.type }}</v-list-item-subtitle>
         </v-list-item-content>
-        <v-list-item-action>
-          <v-icon>
-            $chevron-right
-          </v-icon>
-        </v-list-item-action>
       </v-list-item>
     </template>
   </v-autocomplete>
@@ -75,7 +70,6 @@ export default {
     },
   },
   methods: {
-    async search() {},
     voiceSearch() {},
   },
 };
