@@ -95,6 +95,11 @@ export default {
       return this.$route.query.q;
     },
   },
+  methods: {
+    play(song) {
+      this.$store.dispatch("play", song);
+    },
+  },
 };
 </script>
 
