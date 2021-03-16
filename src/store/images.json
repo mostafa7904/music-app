@@ -58,5 +58,8 @@
     "src": "assets/drake.webp",
     "color": "#F2A74B",
     "largeImage": "assets/large/drake.webp"
+  },
+  "Twenty one pilots": {
+    "largeImage": "assets/large/twenty-one-pilots.webp"
   }
 }

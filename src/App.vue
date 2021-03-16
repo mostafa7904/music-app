@@ -136,4 +136,7 @@ path {
 .active-nav-link {
   color: #1ed760 !important;
 }
+.d-hidden {
+  opacity: 0;
+}
 </style>

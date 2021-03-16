@@ -20,6 +20,10 @@ import settings from "../components/icons/Settings.vue";
 import info from "../components/icons/Info.vue";
 import chevronRight from "../components/icons/ChevronRight.vue";
 import heart from "../components/icons/Heart.vue";
+import github from "../components/icons/Github.vue";
+import gitlab from "../components/icons/Gitlab.vue";
+import codepen from "../components/icons/Codepen.vue";
+import website from "../components/icons/Website.vue";
 
 Vue.use(Vuetify);
 
@@ -45,6 +49,10 @@ export default new Vuetify({
       info: { component: info },
       "chevron-right": { component: chevronRight },
       heart: { component: heart },
+      github: { component: github },
+      gitlab: { component: gitlab },
+      codepen: { component: codepen },
+      website: { component: website },
     },
   },
   theme: {
