@@ -12,7 +12,7 @@
               class="song-item mx-4"
               @click.stop="play(song)"
             >
-              <v-list-item-avatar tile>
+              <v-list-item-avatar tile size="50">
                 <v-overlay :value="hover" absolute color="black" opacity="0.7">
                   <v-icon size="20">
                     $play
@@ -50,7 +50,7 @@
             :to="`/artist/${artist.name}`"
             class="artist-item mx-4"
           >
-            <v-list-item-avatar tile>
+            <v-list-item-avatar size="50">
               <v-img :src="require('../' + artist.image)"> </v-img>
             </v-list-item-avatar>
             <v-list-item-content>
