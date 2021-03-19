@@ -28,8 +28,8 @@ export default {
             commit("changePlaying", song);
           }
 
-          setTimeout(() => {
-            state.audio.play();
+          setTimeout(async () => {
+            await state.audio.play();
             state.isPlaying = true;
           }, 100);
         }
