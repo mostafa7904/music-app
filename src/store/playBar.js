@@ -22,10 +22,10 @@ export default {
         if (state.isPlaying && !song) {
           await dispatch("pause");
         } else {
-          if (song) {
-            commit("changePlaying", song);
+          if (song && state.playing !== song) {
             const history = new History();
             await history.addHistory({ ...song, type: "song" });
+            commit("changePlaying", song);
           }
 
           setTimeout(() => {
