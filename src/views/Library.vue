@@ -12,28 +12,38 @@
           prev-icon="$chevron-left"
         >
           <v-slide-item v-for="(item, idx) in history" :key="idx">
-            <v-card
-              :ripple="false"
-              @click="historyCardClick(item)"
-              flat
-              color="transparent"
-              max-width="150"
-              class="mr-4 rounded-circle "
-            >
-              <v-avatar size="150" :tile="item.type === 'song'">
-                <v-img
-                  :src="
-                    item.type === 'song'
-                      ? require('../' + item.cover)
-                      : item.image
-                  "
-                >
-                </v-img>
-              </v-avatar>
-              <v-card-subtitle class="text-caption">
-                {{ item.name || item.title }}
-              </v-card-subtitle>
-            </v-card>
+            <v-hover v-slot="{ hover }">
+              <v-card
+                :ripple="false"
+                max-height="150"
+                @click="historyCardClick(item)"
+                flat
+                color="transparent"
+                max-width="150"
+                class="mr-4 rounded-circle "
+              >
+                <v-avatar size="150" :tile="item.type === 'song'">
+                  <v-overlay
+                    :value="hover && item.type === 'song'"
+                    absolute
+                    color="black"
+                    opacity="0.7"
+                  >
+                    <v-icon size="40">
+                      $play
+                    </v-icon>
+                  </v-overlay>
+                  <v-img
+                    :src="
+                      item.type === 'song'
+                        ? require('../' + item.cover)
+                        : item.image
+                    "
+                  >
+                  </v-img>
+                </v-avatar>
+              </v-card>
+            </v-hover>
           </v-slide-item>
         </v-slide-group>
       </v-col>
