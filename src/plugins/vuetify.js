@@ -19,6 +19,7 @@ import microphone from "../components/icons/Microphone.vue";
 import settings from "../components/icons/Settings.vue";
 import info from "../components/icons/Info.vue";
 import chevronRight from "../components/icons/ChevronRight.vue";
+import chevronLeft from "../components/icons/ChevronLeft.vue";
 import heart from "../components/icons/Heart.vue";
 import github from "../components/icons/Github.vue";
 import gitlab from "../components/icons/Gitlab.vue";
@@ -48,6 +49,7 @@ export default new Vuetify({
       settings: { component: settings },
       info: { component: info },
       "chevron-right": { component: chevronRight },
+      "chevron-left": { component: chevronLeft },
       heart: { component: heart },
       github: { component: github },
       gitlab: { component: gitlab },

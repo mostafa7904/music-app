@@ -4,12 +4,11 @@ export default class History {
     try {
       let savedHistory = window.localStorage.getItem("history");
       if (!savedHistory) {
-        console.log("Nothing");
         window.localStorage.setItem("history", "[]");
         savedHistory = window.localStorage.getItem("history");
       }
       const history = await this.parse(savedHistory);
-      history.push(item);
+      history.unshift(item);
       const data = await this.stringify(history);
       window.localStorage.setItem("history", data);
     } catch (e) {
