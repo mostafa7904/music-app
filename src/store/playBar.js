@@ -1,14 +1,11 @@
+import History from "../utils/history";
 export default {
   state: () => ({
     isPlaying: false,
-    previousSongId: 0,
     playing: {},
     audio: null,
   }),
   mutations: {
-    setPreviousSongId(state, id) {
-      state.previousSongId = id;
-    },
     setAudio(state, audio) {
       state.audio = audio;
     },
@@ -25,7 +22,11 @@ export default {
         if (state.isPlaying && !song) {
           await dispatch("pause");
         } else {
-          if (song) commit("changePlaying", song);
+          if (song) {
+            commit("changePlaying", song);
+            const history = new History();
+            await history.addHistory({ ...song, type: "song" });
+          }
 
           setTimeout(() => {
             state.audio.play();

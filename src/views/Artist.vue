@@ -79,6 +79,7 @@
 
 <script>
 import { mapState } from "vuex";
+import History from "../utils/history";
 export default {
   computed: {
     ...mapState(["images", "songs"]),
@@ -105,8 +106,14 @@ export default {
   data: () => ({
     readMore: false,
   }),
-  mounted() {
+  async mounted() {
     this.$vuetify.goTo(0);
+    const history = new History();
+    await history.addHistory({
+      name: this.artistName,
+      image: this.artistImage,
+      type: "artist",
+    });
   },
   methods: {
     play(song) {
