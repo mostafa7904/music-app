@@ -3,19 +3,14 @@
 This is simple music streaming app made exclusively with Vue using the vuetify component library.
 Any contributions would be appreciated.
 
-#### _You can see a live working version [here](https://musicfield.netlify.app/)_
+#### You can see a live working version [here](https://musicfield.netlify.app/)\_
 
-![screenshot of the website](https://github.com/mostafa7904/music-app/blob/main/imgs/screenshot.webp?raw=true)
-
-## Rules
-
-There are some simple rules before you contribute
-
-- If you are adding any images make sure they are optimized ([image optimization process](#image-optimazation))
-- You can add any song you want from the source in the code (no worries about copyright)
-- If possible do not add any external libraries
+![screenshot of home-page](https://github.com/mostafa7904/music-app/blob/main/imgs/home-page.webp?raw=true)
+![screenshot of artist's page](https://github.com/mostafa7904/music-app/blob/main/imgs/artist-page.webp?raw=true)
 
 ## Image Optimazation
+
+If you want to add any images make sure they are optimized
 
 1.  [Make sure the size is correct](https://ezgif.com/resize)
 2.  [Optimize with lossy setting](https://shortpixel.com/online-image-compression)

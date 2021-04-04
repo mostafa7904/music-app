@@ -67,7 +67,6 @@ export default {
       playing: (state) => state.playBar.playing,
       isPlaying: (state) => state.playBar.isPlaying,
       audio: (state) => state.playBar.audio,
-      previousSongId: (state) => state.playBar.previousSongId,
     }),
   },
   async mounted() {
@@ -91,9 +90,8 @@ export default {
       this.getTime();
     },
     nextSong() {
-      this.$store.commit("changeIsPlaying", false);
       const songId = this.playing.id;
-      this.$store.commit("setPreviousSongId", songId - 1);
+      this.$store.commit("changeIsPlaying", false);
       if (songId === this.songs.length) {
         this.play(this.songs[0]);
       } else {
@@ -101,9 +99,13 @@ export default {
       }
     },
     previousSong() {
+      const songId = this.playing.id;
       this.$store.commit("changeIsPlaying", false);
-      const previousSong = this.songs[this.previousSongId];
-      this.play(previousSong);
+      if (songId === 1) {
+        this.play(this.songs[this.songs.length - 1]);
+      } else {
+        this.play(this.songs[songId - 2]);
+      }
     },
     onLoadedSong() {
       this.loadingSong = false;
