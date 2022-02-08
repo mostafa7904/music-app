@@ -2,27 +2,23 @@
   <div class="about-page text-left pa-12">
     <h1>About</h1>
     <p>
-      This website is made by
-      <a href="https://mostafa-rahmati.ir" target="_blank">Mostafa Rahmati</a>.
-      The desing is inspired from
+      The design is inspired from
       <a
         href="https://twitter.com/SMohammadiNia"
         target="_blank"
         rel="noopener noreferrer"
         >Sajad mohamd nia's</a
       >
-      desing on
+      design on
       <a
         href="https://dribbble.com/shots/14623432-Music-Streaming-Desktop-app/attachments/6316751?mode=media"
         target="_blank"
         rel="noopener noreferrer"
         >dribble</a
       >. Make sure to check him out. <br />
-      There are no copyright issues with the songs. Unless the website that we
+      There are no copyright issues with the songs. Unless the website that I
       use tells me to stop using their songs. This is a small project that I've
-      built in my free time. I first made this website cause I was sick of ads
-      and I wanted all my songs in the same place. I'm not planning to make
-      money out of this website.
+      built in my free time. I'm not planning to make money out of this website.
       <br />
       If you enjoy this project and want to help maybe star it on GitHub or
       follow me on my social medias.
