@@ -5,7 +5,10 @@
     :loading="loading"
     dense
     clearable
-    :menu-props="{ contentClass: 'transparent-scroll' }"
+    :menu-props="{
+      contentClass: 'transparent-scroll',
+      closeOnContentClick: true,
+    }"
     :items="searchItems"
     item-text="title"
     color="#4edf93"
@@ -20,7 +23,7 @@
       <v-icon @click="voiceSearch" size="21">$microphone</v-icon>
     </template>
 
-    <template #item="{item}" class="mt-12">
+    <template #item="{ item }" class="mt-12">
       <v-list-item two-line :to="`/search?q=${item.title}`">
         <v-list-item-content class="text-left">
           <v-list-item-title>{{ item.title }}</v-list-item-title>
